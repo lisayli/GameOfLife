@@ -9,7 +9,7 @@ public class CellGeneration {
     public static String readFirstGeneration() throws FileNotFoundException {
         File file = new File("src/main/resources/first-generation");
         Scanner sc = new Scanner(file);
-        // we just need to use \\Z as delimiter
+
         return sc.useDelimiter("\\Z").next();
     }
 
