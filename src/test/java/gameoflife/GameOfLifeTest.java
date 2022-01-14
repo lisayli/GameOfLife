@@ -23,12 +23,29 @@ TODO: Problem Description This Kata is about calculating the next generation of 
 class GameOfLifeTest {
 
     Cell cell;
+    Cell neighbour;
     LifeStatus lifeStatus;
 
     @Test
     void aCellWithOnlyOneNeighbourDies() {
         cell = new Cell(Cell.LifeStatus.ALIVE);
-        lifeStatus = cell.getNextLifeStatus(1);
+        lifeStatus = cell.getNextCellState(1);
         assertEquals(LifeStatus.DEAD, lifeStatus);
+    }
+
+    @Test
+    void diesWithZeroNeighbours(){
+        cell= new Cell(LifeStatus.ALIVE);
+
+        lifeStatus = cell.getNextCellState(2);
+
+        assertEquals(LifeStatus.DEAD,lifeStatus);
+    }
+    @Test
+    void aCellWithTwoNeighbourLives(){
+        cell = new Cell(LifeStatus.ALIVE);
+        lifeStatus = cell.getNextCellState(2);
+
+        assertEquals(cell.getLifeStatus(),lifeStatus);
     }
 }
