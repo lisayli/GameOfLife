@@ -11,8 +11,8 @@ TODO: Problem Description This Kata is about calculating the next generation of 
  in this version of the problem, the grid is finite, and no life can exist off the edges. When calculating the next generation of the grid,
  follow these rules:
    /*
- 1. Any live cell with fewer than two live neighbors dies, as if caused by underpopulation.
  2. Any live cell with more than three live neighbors dies, as if by overcrowding.
+ /*
  3. Any live cell with two or three live neighbors lives on to the next generation.
  4. Any dead cell with exactly three live neighbors becomes a live cell.
  /*
@@ -34,10 +34,10 @@ class GameOfLifeTest {
     }
 
     @Test
-    void diesWithZeroNeighbours(){
+    void aCellDiesWithZeroNeighbours(){
         cell= new Cell(LifeStatus.ALIVE);
 
-        lifeStatus = cell.getNextCellState(2);
+        lifeStatus = cell.getNextCellState(0);
 
         assertEquals(LifeStatus.DEAD,lifeStatus);
     }
@@ -48,4 +48,25 @@ class GameOfLifeTest {
 
         assertEquals(cell.getLifeStatus(),lifeStatus);
     }
+
+    @Test
+    void anyLiveCellWithMoreThanThreeLiveNeighborsDiesAsIfByOvercrowding(){
+        cell = new Cell(LifeStatus.ALIVE);
+        lifeStatus = cell.getNextCellState(3);
+
+        assertEquals(LifeStatus.DEAD,lifeStatus);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

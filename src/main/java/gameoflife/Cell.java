@@ -18,11 +18,15 @@ public class Cell {
         ALIVE, DEAD
     }
 
-    public LifeStatus getNextCellState(int state) {
-        if (state == 2){
+    public LifeStatus getNextCellState(int neighboursOfCell) {
+        if (neighboursOfCell == 2) {
             return LifeStatus.ALIVE;
+        } else if (neighboursOfCell > 3) {
+            return LifeStatus.DEAD;
         }
         return LifeStatus.DEAD;
     }
+
+
 }
 
