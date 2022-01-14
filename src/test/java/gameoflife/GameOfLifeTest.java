@@ -52,8 +52,13 @@ class GameOfLifeTest {
     @Test
     void anyLiveCellWithMoreThanThreeLiveNeighborsDiesAsIfByOvercrowding(){
         cell = new Cell(LifeStatus.ALIVE);
+        lifeStatus = cell.getNextCellState(4);
+        assertEquals(LifeStatus.DEAD,lifeStatus);
+    }
+    @Test
+    void aliveCellWithThreeNeighborsShouldNotDie(){
+        cell = new Cell(LifeStatus.ALIVE);
         lifeStatus = cell.getNextCellState(3);
-
         assertEquals(LifeStatus.DEAD,lifeStatus);
     }
 

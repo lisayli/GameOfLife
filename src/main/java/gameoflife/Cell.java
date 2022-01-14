@@ -21,7 +21,7 @@ public class Cell {
     public LifeStatus getNextCellState(int neighboursOfCell) {
         if (neighboursOfCell == 2) {
             return LifeStatus.ALIVE;
-        } else if (neighboursOfCell > 3) {
+        } else if (neighboursOfCell >= 3) {
             return LifeStatus.DEAD;
         }
         return LifeStatus.DEAD;
