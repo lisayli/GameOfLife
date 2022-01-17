@@ -2,6 +2,7 @@ package gameoflife;
 
 import gameoflife.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,14 +11,14 @@ public class CellLifecycle {
     private static List<Cell> aliveCells;
     private static List<Cell> deadCells;
     private static List<Cell> neighbours;
-    private final LifeStatus lifeStatus;
 
 
-    public CellLifecycle(LifeStatus lifeStatus) {
-        this.lifeStatus = lifeStatus;
+    public CellLifecycle() {
+
     }
 
     public static List<Cell> getNeighbours() {
+
         return neighbours;
     }
 
@@ -26,10 +27,10 @@ public class CellLifecycle {
     }
 
     public static List<Cell> getAliveCells() {
+     if (aliveCells.isEmpty()){
+         aliveCells = new ArrayList<>();
+     }
         return aliveCells;
     }
 
-    public LifeStatus getLifeStatus() {
-        return lifeStatus;
-    }
 }
