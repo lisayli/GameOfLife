@@ -49,7 +49,7 @@ class GameOfLifeTest {
 
         assertEquals(LifeStatus.ALIVE, lifeStatusOfCell);
     }
-    /*
+
 
     @Test
     void anyLiveCellWithMoreThanThreeLiveNeighborsDiesAsIfByOvercrowding() {
@@ -57,6 +57,8 @@ class GameOfLifeTest {
         lifeStatusOfCell = cell.getNextCellState(4);
         assertEquals(LifeStatus.DEAD, lifeStatusOfCell);
     }
+
+
 
     @Test
     void aliveCellsWithThreeNeighborsLivesOnToNextGeneration() {
@@ -67,21 +69,13 @@ class GameOfLifeTest {
 
 
     @Test
-    void anyLiveCellWithTwoNeighborsLivesOnToTheNextGeneration() {
-        cell = new Cell(LifeStatus.ALIVE);
-        LifeStatus currentCellState = cell.getNextCellState(2);
-        assertEquals(LifeStatus.ALIVE,currentCellState);
-
-    }
-
-
-
-    @Test
     void deadCellWithExactlyThreeLiveNeighborsBecomeALiveCell(){
         Cell cell = new Cell(LifeStatus.DEAD);
         lifeStatusOfCell = cell.getNextCellState(3);
         assertEquals(LifeStatus.ALIVE, lifeStatusOfCell);
     }
+
+    /*
     @Test
     void deadCellWith4LiveNeighborsWillStayDead(){
         Cell cell = new Cell(LifeStatus.DEAD);

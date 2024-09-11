@@ -22,6 +22,8 @@ public class Cell {
         // om mindre än 2 granner = DEAD pga underpopulation
         if (neighbours < 2 || neighbours > 3) {
             return LifeStatus.DEAD;
+        } else if ( neighbours == 3){
+            return LifeStatus.ALIVE;
         }
         return lifeStatus;
     }
