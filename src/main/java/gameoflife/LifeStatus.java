@@ -1,18 +1,8 @@
 package gameoflife;
 
 public enum LifeStatus {
-    ALIVE("10"), DEAD("0");
+    ALIVE,
+    DEAD;
 
-
-    private final String state;
-
-    LifeStatus(String state) {
-
-        this.state = state;
-    }
-
-    public String getState() {
-        return state;
-    }
 }
 

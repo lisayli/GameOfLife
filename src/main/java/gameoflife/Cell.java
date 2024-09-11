@@ -3,23 +3,11 @@ package gameoflife;
 public class Cell {
 
     private LifeStatus lifeStatus;
-    final private CellLifecycle cellLifecycle;
 
-
-    public Cell(LifeStatus lifeStatus, CellLifecycle cellLifecycle) {
+    public Cell(LifeStatus lifeStatus) {
         this.lifeStatus = lifeStatus;
-        this.cellLifecycle = cellLifecycle;
 
     }
-    public boolean checkIfDeadOrAlive(Cell cell){
-        if(cell.getLifeStatus().getState().equals(LifeStatus.ALIVE.getState())){
-            return CellLifecycle.getAliveCells().add(cell);
-        }else if (cell.getLifeStatus().getState().equals(LifeStatus.DEAD.getState())){
-            return CellLifecycle.getDeadCells().add(cell);
-        }
-        return false;
-    }
-
 
     public LifeStatus getLifeStatus() {
         return lifeStatus;
@@ -30,18 +18,12 @@ public class Cell {
         return lifeStatus;
     }
 
-    public LifeStatus getNextCellState(int neighboursOfCell) {
-        Cell deadCell = new Cell(LifeStatus.DEAD, cellLifecycle);
-        if (neighboursOfCell == 2) {
-            return LifeStatus.ALIVE;
-        } else if (neighboursOfCell > 3) {
+    public LifeStatus getNextCellState(int neighbours) {
+        // om mindre än 2 granner = DEAD pga underpopulation
+        if (neighbours < 2) {
             return LifeStatus.DEAD;
         }
-        if (deadCell.getLifeStatus().getState().equals("0") && neighboursOfCell ==3){
-            return deadCell.setLifeStatus(LifeStatus.ALIVE);
-        }
-        return LifeStatus.DEAD;
-
+        return lifeStatus;
     }
 }
 

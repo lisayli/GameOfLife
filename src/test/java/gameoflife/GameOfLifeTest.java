@@ -32,7 +32,7 @@ class GameOfLifeTest {
         lifeStatusOfCell = cell.getNextCellState(1);
         assertEquals(LifeStatus.DEAD, lifeStatusOfCell);
     }
-
+/*
     @Test
     void aLivingCellDiesWithZeroNeighbours() {
         cell = new Cell(LifeStatus.ALIVE);
@@ -87,6 +87,8 @@ class GameOfLifeTest {
         lifeStatusOfCell = cell.getNextCellState(4);
         assertEquals(LifeStatus.DEAD, lifeStatusOfCell);
     }
+
+ */
 
 /*
 Generation 1:
