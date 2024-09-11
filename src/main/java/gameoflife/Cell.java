@@ -20,7 +20,7 @@ public class Cell {
 
     public LifeStatus getNextCellState(int neighbours) {
         // om mindre än 2 granner = DEAD pga underpopulation
-        if (neighbours < 2) {
+        if (neighbours < 2 || neighbours > 3) {
             return LifeStatus.DEAD;
         }
         return lifeStatus;
