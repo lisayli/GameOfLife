@@ -13,9 +13,8 @@ public class Cell {
         return lifeStatus;
     }
 
-    public LifeStatus setLifeStatus(LifeStatus lifeStatus) {
+    public void setLifeStatus(LifeStatus lifeStatus) {
         this.lifeStatus = lifeStatus;
-        return lifeStatus;
     }
 
     public LifeStatus getNextCellState(int neighbours) {
@@ -27,5 +26,12 @@ public class Cell {
         }
         return lifeStatus;
     }
+
+    @Override
+    public String toString(){
+        return lifeStatus == LifeStatus.ALIVE ? "*" : ".";
+    }
+
+
 }
 
