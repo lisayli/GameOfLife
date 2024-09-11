@@ -75,7 +75,7 @@ class GameOfLifeTest {
         assertEquals(LifeStatus.ALIVE, lifeStatusOfCell);
     }
 
-    /*
+
     @Test
     void deadCellWith4LiveNeighborsWillStayDead(){
         Cell cell = new Cell(LifeStatus.DEAD);
@@ -83,7 +83,7 @@ class GameOfLifeTest {
         assertEquals(LifeStatus.DEAD, lifeStatusOfCell);
     }
 
- */
+
 
 /*
 Generation 1:
