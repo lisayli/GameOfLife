@@ -9,11 +9,10 @@ import java.util.stream.Collectors;
 /*
 utdata kan se ut såhär:
 Generation 2:
-4 8
-........
-...**...
-...**...
-........
+......
+...**.
+...**.
+......
  */
 public class Board {
 
@@ -38,4 +37,7 @@ public class Board {
         });
     }
 
+    public List<List<Cell>> getBoard() {
+        return board;
+    }
 }
