@@ -42,7 +42,24 @@ public class BoardTest {
 
     }
 
+    @Test
+    void countNeighbours() throws IOException {
+        Board gameBoard = new Board("src/main/resources/board1.txt");
+
+        //Generation 1:
+        /*
+        ......
+        ....*.
+        ...**.
+        ......
+        */
+
+        assertEquals(2, gameBoard.countAliveNeighbours(1, 4));
+        assertEquals(2, gameBoard.countAliveNeighbours(2, 3));
+        assertEquals(2, gameBoard.countAliveNeighbours(2, 4));
+        assertEquals(0, gameBoard.countAliveNeighbours(0, 0));
+    }
 
 
+    }
 
-}

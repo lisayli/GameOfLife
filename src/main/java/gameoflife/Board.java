@@ -40,4 +40,30 @@ public class Board {
     public List<List<Cell>> getBoard() {
         return board;
     }
+
+
+    public int countAliveNeighbours(int row, int col) {
+        int aliveNeighbours = 0;
+
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i == 0 && j == 0) continue;
+
+                int neighbourRow = row + i;
+                int neighbourCol = col + j;
+
+                if (neighbourRow >= 0 && neighbourRow < board.size() &&
+                        neighbourCol >= 0 && neighbourCol < board.get(0).size()) {
+                    if (board.get(neighbourRow).get(neighbourCol).getLifeStatus() == LifeStatus.ALIVE) {
+                        aliveNeighbours++;
+                    }
+                }
+            }
+        }
+        return aliveNeighbours;
+    }
+
 }
+
+
+
