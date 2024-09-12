@@ -33,15 +33,9 @@ public class Board {
 
     public void printBoard() {
         board.forEach(row -> {
-            row.forEach(cell -> System.out.println(cell.toString()));
+            row.forEach(cell -> System.out.print(cell.toString()));
             System.out.println();
         });
     }
-
-    public static void main(String[] args) throws IOException {
-        Board board1 = new Board("src/main/resources/board.txt");
-        board1.printBoard();    }
-
-
 
 }
