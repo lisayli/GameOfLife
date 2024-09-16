@@ -8,6 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class BoardTest {
     /*
   board1 första generation:
@@ -88,7 +89,36 @@ public class BoardTest {
         assertEquals(LifeStatus.DEAD, cells.get(1).get(2).getLifeStatus());
         assertEquals(LifeStatus.DEAD, cells.get(1).get(5).getLifeStatus());
 
+    }
 
+    @Test
+    void oneLonelyCellShouldDie() throws IOException {
+        Board board = new Board("src/main/resources/onecell.txt");
+        /*
+        generation 1:
+        ......
+        ..*...
+        ......
+        ......
+         */
+        List<List<Cell>> cells = board.getBoard();
+
+        assertEquals(LifeStatus.ALIVE, cells.get(1).get(2).getLifeStatus());
+        assertEquals(0, board.countAliveNeighbours(1,2));
+
+        board.getNextGeneration();
+        cells = board.getBoard();
+
+        /*
+        generation 2:
+        ......
+        ......
+        ......
+        ......
+         */
+
+        assertEquals(LifeStatus.DEAD, cells.get(1).get(2).getLifeStatus());
+        assertEquals(0, board.countAliveNeighbours(1,2));
     }
 
 
