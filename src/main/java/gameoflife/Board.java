@@ -3,6 +3,7 @@ package gameoflife;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,10 +42,8 @@ public class Board {
         return board;
     }
 
-
     public int countAliveNeighbours(int row, int col) {
         int aliveNeighbours = 0;
-
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if (i == 0 && j == 0) continue;
@@ -63,7 +62,30 @@ public class Board {
         return aliveNeighbours;
     }
 
+    public void getNextGeneration() {
+        List<List<Cell>> newBoard = new ArrayList<>();
+
+        for (int row = 0; row < board.size(); row++) {
+            List<Cell> newRow = new ArrayList<>();
+
+            for (int col = 0; col < board.get(row).size(); col++) {
+                Cell currentCell = board.get(row).get(col);
+                int aliveNeighbours = countAliveNeighbours(row, col);
+
+                LifeStatus newLifeStatus = currentCell.getNextCellState(aliveNeighbours);
+
+                newRow.add(new Cell(newLifeStatus));
+            }
+
+            newBoard.add(newRow);
+        }
+
+        board = newBoard;
+    }
+
 }
+
+
 
 
 
