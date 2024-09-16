@@ -17,6 +17,11 @@ public class Main {
         System.out.println("Generation 2:");
         board.printBoard();
 
+        board.getNextGeneration();
+        System.out.println("Generation 3:");
+        board.printBoard();
+
+
     }
 
 }
