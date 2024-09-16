@@ -58,7 +58,7 @@ public class BoardTest {
 
 
     @Test
-    void generationOneToSecondGenerationNeighbourCount() throws IOException {
+    void testLifestatusAfterNextGeneration() throws IOException {
          /*
         Generation 1:
         ......
